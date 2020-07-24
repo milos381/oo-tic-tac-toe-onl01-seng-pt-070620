@@ -51,7 +51,7 @@ end
      puts "Please enter 1-9:"
      display_board
  end
-def turn_count #i ovo nisam znao
+def self.turn_count #i ovo nisam znao
   counter = 0
   @board.each do |count|
     if count = "X" || count = "O"

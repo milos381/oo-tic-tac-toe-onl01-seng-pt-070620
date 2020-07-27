@@ -111,7 +111,15 @@ end
   end
 
   def play
+    if !over?
+      turn
+    end
 
+    if won?
+      puts "Congratulations!"
+    elsif draw?
+      puts "it'sa draw..."
+    end
   end
 
 

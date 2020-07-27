@@ -104,7 +104,7 @@ end
 
   def winner
     if won?
-      @board[win_one]
+      @board[0]
     end
   end
 

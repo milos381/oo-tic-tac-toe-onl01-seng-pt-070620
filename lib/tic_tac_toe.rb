@@ -114,7 +114,7 @@ end
     until !over?
       turn
     end
-
+  end
     if won?
       puts "Congratulations!"
     elsif draw?

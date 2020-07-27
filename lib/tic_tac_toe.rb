@@ -111,7 +111,7 @@ end
   end
 
   def play
-    if !over?
+    until !over?
       turn
     end
 

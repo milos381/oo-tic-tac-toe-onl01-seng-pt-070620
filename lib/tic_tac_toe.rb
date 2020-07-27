@@ -44,17 +44,19 @@ end
    user_input = gets.strip
    index = input_to_index(user_input)
    if valid_move?(index)
-     move(index, token = "X")
+     move(index, current_player)
      display_board
 #     turn
    else
      puts "Please enter 1-9:"
+     user_input = gets.strip
      display_board
  end
-def self.turn_count #i ovo nisam znao
+end
+def turn_count #i ovo nisam znao
   counter = 0
   @board.each do |count|
-    if count = "X" || count = "O"
+    if count == "X" || count == "O"
       counter += 1
     end
   end
@@ -69,23 +71,43 @@ def won?
     win_one = win_combo[0]
     win_two = win_combo[1]
     win_three = win_combo[2]
-    if @board[win_one] == "X" && @board[win_two] == "X" && @board[win_three] == "X"
-      return true
-    else
-      @board[win_one] == "O" && @board[win_two] == "O" && @board[win_three] == "O"
-      return true
-    else
-      return false
+    if @board[win_one] == "X" && @board[win_two] == "X" && @board[win_three] == "X" && position_taken?(win_one)
+      return win_combo
+    elsif @board[win_one] == "O" && @board[win_two] == "O" && @board[win_three] == "O" && position_taken?(win_one)
+      return win_combo
+
     end
-    win_combo
+      #@board[win_one] == @board[win_two] && @board[win_two] == @board[win_three] && position_taken?(win_one)
+
+  end
+  return false
+end
+  def full?
+    @board.all? {|i| i == "X" || i == "O"}
+
+  end
+  def draw?
+    if !won? && full?
+      true
+    elsif !won? && !full?
+      false
+    else won?
+      false
+    end
   end
 
-end
+  def over?
+    if won? || draw? || full?
+      return true
+    end
+  end
+
+  def winner
+    if won?
+
+    end
+  end
 
 
 
-
-
-
-end
 end

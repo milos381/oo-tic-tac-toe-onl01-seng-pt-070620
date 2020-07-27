@@ -115,7 +115,7 @@ end
        turn
     end
     if won?
-      puts "Congratulations#{@board}!"
+      puts "Congratulations#{@board[]}!"
     elsif draw?
       puts "it'sa draw..."
     end

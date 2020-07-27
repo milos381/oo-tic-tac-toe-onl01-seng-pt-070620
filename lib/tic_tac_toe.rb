@@ -111,11 +111,9 @@ end
   end
 
   def play
-    counter = 0
-    until counter == 9
-      turn
-      counter += 1
-    end
+    until over?
+       turn
+    end 
     if won?
       puts "Congratulations!"
     elsif draw?

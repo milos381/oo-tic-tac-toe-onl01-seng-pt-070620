@@ -106,7 +106,8 @@ end
   def winner
     if won?
       #binding.pry
-      @board[won?[0]]
+      #@board[won?[0]]
+      won?[0]
     end
   end
 
